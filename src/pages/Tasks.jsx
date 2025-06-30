@@ -95,6 +95,7 @@ const Tasks = () => {
             >
               <h4 className="font-semibold">{task.title}</h4>
               <p className="text-sm">{task.description}</p>
+              <p className="text-sm">{task.createdAt}</p>
               <div className="flex items-center gap-2 mt-2">
                 <select
                   value={task.status}
