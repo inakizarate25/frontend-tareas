@@ -95,7 +95,16 @@ const Tasks = () => {
             >
               <h4 className="font-semibold">{task.title}</h4>
               <p className="text-sm">{task.description}</p>
-              <p className="text-sm">{task.createdAt}</p>
+              <p className="text-sm text-gray-500">
+                {new Date(task.createdAt).toLocaleDateString("es-AR", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </p>
+
               <div className="flex items-center gap-2 mt-2">
                 <select
                   value={task.status}
