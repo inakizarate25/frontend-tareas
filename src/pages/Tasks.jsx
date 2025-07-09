@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import API from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import dayjs from "dayjs";
+import "dayjs/locale/es";
+dayjs.locale("es");
 
 const Tasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -96,13 +99,7 @@ const Tasks = () => {
               <h4 className="font-semibold">{task.title}</h4>
               <p className="text-sm">{task.description}</p>
               <p className="text-sm text-gray-500">
-                {new Date(task.createdAt).toLocaleDateString("es-AR", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
+                {dayjs(task.createdAt).format("D [de] MMMM [de] YYYY, HH:mm")}
               </p>
 
               <div className="flex items-center gap-2 mt-2">
